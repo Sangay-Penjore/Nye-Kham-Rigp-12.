@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nye Kham Rigpa 12 - Physics Study Hub</title>
-    <!-- Tailwind CSS CDN for modern styling -->
+    <title>Nye Kham Rigpa 12 - Advanced Physics Study Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-<!-- HEADER / NAVIGATION -->
+<!-- HEADER -->
 <header class="bg-indigo-900 text-white shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div class="flex items-center space-x-3">
@@ -19,13 +18,11 @@
             </div>
             <div>
                 <h1 class="text-xl font-extrabold tracking-tight">Nye Kham Rigpa 12</h1>
-                <p class="text-xs text-indigo-200">Class 12 Physics Study Notes & Past Paper Solutions</p>
+                <p class="text-xs text-indigo-200">Class 12 Comprehensive Physics Study & Exam Hub</p>
             </div>
         </div>
-        
-        <!-- Navigation Links / CTA -->
         <div class="flex items-center gap-3">
-            <button onclick="openRequestModal()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-center font-semibold px-4 py-2 rounded-xl text-sm transition shadow-sm">
+            <button onclick="openRequestModal()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold px-4 py-2 rounded-xl text-sm transition shadow-sm">
                 <i class="fa-solid fa-paper-plane mr-1.5"></i> Request Note
             </button>
         </div>
@@ -36,68 +33,140 @@
 <section class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-blue-900 text-white py-12 px-4 text-center">
     <div class="max-w-3xl mx-auto space-y-4">
         <span class="bg-indigo-700/80 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Class 12 Science Hub</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Master Your Physics Exams</h2>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Master Your Physics Board Exams</h2>
         <p class="text-indigo-100 text-sm sm:text-base max-w-xl mx-auto">
-            Access free comprehensive chapter notes, revision summaries, and unlock step-by-step verified solutions to past examination papers.
+            Detailed unit notes, chapter-wise theory, important conceptual questions, numerical practice drills, and MBoB-verified mock papers.
         </p>
-        <!-- Search Bar -->
         <div class="pt-4 max-w-md mx-auto">
             <div class="relative">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
                     <i class="fa-solid fa-search"></i>
                 </span>
-                <input type="text" id="searchInput" onkeyup="filterResources()" placeholder="Search notes, chapters, or past papers..." class="w-full pl-10 pr-4 py-3 bg-white text-slate-900 placeholder-slate-400 rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm">
+                <input type="text" id="searchInput" onkeyup="filterResources()" placeholder="Search units, chapters, questions, or mock papers..." class="w-full pl-10 pr-4 py-3 bg-white text-slate-900 placeholder-slate-400 rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm">
             </div>
         </div>
     </div>
 </section>
 
-<!-- MAIN CONTENT CONTAINER -->
+<!-- MAIN CONTENT -->
 <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full">
     
     <!-- CATEGORY TABS -->
-    <div class="flex justify-center mb-8 border-b border-slate-200 pb-4">
-        <div class="inline-flex bg-slate-200 p-1 rounded-xl text-sm font-medium">
+    <div class="flex justify-center mb-8 border-b border-slate-200 pb-4 overflow-x-auto">
+        <div class="inline-flex bg-slate-200 p-1 rounded-xl text-sm font-medium whitespace-nowrap">
             <button onclick="switchTab('all')" id="btn-all" class="px-4 py-2 rounded-lg bg-white text-slate-900 shadow-sm transition">All Resources</button>
-            <button onclick="switchTab('free')" id="btn-free" class="px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Free Notes</button>
-            <button onclick="switchTab('paid')" id="btn-paid" class="px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Past Papers (MBoB)</button>
+            <button onclick="switchTab('units')" id="btn-units" class="px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Unit & Chapter Notes</button>
+            <button onclick="switchTab('questions')" id="btn-questions" class="px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Important & Practice Qs</button>
+            <button onclick="switchTab('mock')" id="btn-mock" class="px-4 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">Paid Mock Exam Papers</button>
         </div>
     </div>
 
-    <!-- RESOURCE CARDS GRID -->
+    <!-- CARDS GRID -->
     <div id="resourceGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- CARD 1: Free Notes Example -->
-        <div class="resource-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden" data-category="free">
+        <!-- UNIT 1 NOTE -->
+        <div class="resource-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden" data-category="units">
             <div class="p-6 space-y-3">
                 <div class="flex justify-between items-start">
-                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Free Note</span>
-                    <span class="text-xs text-slate-400 font-medium">Chapter 1</span>
+                    <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Unit Note</span>
+                    <span class="text-xs text-slate-400 font-medium">Unit 1</span>
                 </div>
                 <h3 class="font-bold text-lg text-slate-900">Electrostatics & Electric Fields</h3>
-                <p class="text-slate-600 text-sm">Comprehensive revision notes covering Coulomb's law, electric field intensity, and Gauss's theorem with derivation steps.</p>
+                <p class="text-slate-600 text-sm">Detailed notes covering Coulomb’s law, Gauss's law derivations, electric potential, and capacitance applications.</p>
             </div>
             <div class="bg-slate-50 px-6 py-3 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-slate-500"><i class="fa-regular fa-file-pdf mr-1 text-red-500"></i> PDF Document</span>
+                <span class="text-xs text-slate-500"><i class="fa-regular fa-file-pdf mr-1 text-red-500"></i> PDF Guide</span>
                 <a href="https://drive.google.com" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
                     Download Free
                 </a>
             </div>
         </div>
 
-        <!-- CARD 2: Paid Past Paper Solution Example -->
-        <div class="resource-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden ring-1 ring-amber-500/30" data-category="paid">
+        <!-- UNIT 2 NOTE -->
+        <div class="resource-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden" data-category="units">
             <div class="p-6 space-y-3">
                 <div class="flex justify-between items-start">
-                    <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Paid Solution</span>
+                    <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Unit Note</span>
+                    <span class="text-xs text-slate-400 font-medium">Unit 2</span>
+                </div>
+                <h3 class="font-bold text-lg text-slate-900">Current Electricity & Circuits</h3>
+                <p class="text-slate-600 text-sm">In-depth breakdown of Ohm’s law, Kirchhoff's laws, Wheatstone bridge, potentiometer, and internal resistance.</p>
+            </div>
+            <div class="bg-slate-50 px-6 py-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs text-slate-500"><i class="fa-regular fa-file-pdf mr-1 text-red-500"></i> PDF Guide</span>
+                <a href="https://drive.google.com" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
+                    Download Free
+                </a>
+            </div>
+        </div>
+
+        <!-- IMPORTANT & PRACTICE QUESTIONS -->
+        <div class="resource-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden" data-category="questions">
+            <div class="p-6 space-y-3">
+                <div class="flex justify-between items-start">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Question Bank</span>
+                    <span class="text-xs text-slate-400 font-medium">Units 1 - 3</span>
+                </div>
+                <h3 class="font-bold text-lg text-slate-900">Important Board Questions & Numericals</h3>
+                <p class="text-slate-600 text-sm">Handpicked conceptual reasoning questions, high-weightage derivations, and solved numerical problems.</p>
+            </div>
+            <div class="bg-slate-50 px-6 py-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs text-slate-500"><i class="fa-regular fa-file-pdf mr-1 text-red-500"></i> Practice Set</span>
+                <a href="https://drive.google.com" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
+                    Download Free
+                </a>
+            </div>
+        </div>
+
+        <!-- CHAPTER-WISE PRACTICE DRILLS -->
+        <div class="resource-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden" data-category="questions">
+            <div class="p-6 space-y-3">
+                <div class="flex justify-between items-start">
+                    <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Drill Worksheets</span>
+                    <span class="text-xs text-slate-400 font-medium">All Chapters</span>
+                </div>
+                <h3 class="font-bold text-lg text-slate-900">Chapter-Wise Practice Drills & Quizzes</h3>
+                <p class="text-slate-600 text-sm">Self-assessment worksheets designed for zero-period morning drills and evening remediation sessions.</p>
+            </div>
+            <div class="bg-slate-50 px-6 py-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs text-slate-500"><i class="fa-regular fa-file-pdf mr-1 text-red-500"></i> Worksheet</span>
+                <a href="https://drive.google.com" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
+                    Download Free
+                </a>
+            </div>
+        </div>
+
+        <!-- PAID MOCK EXAM PAPER 1 -->
+        <div class="resource-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden ring-1 ring-amber-500/30" data-category="mock">
+            <div class="p-6 space-y-3">
+                <div class="flex justify-between items-start">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Paid Mock Paper</span>
                     <span class="text-xs font-bold text-amber-600">Nu. 50</span>
                 </div>
-                <h3 class="font-bold text-lg text-slate-900">Class 12 Physics Past Paper 2024 Fully Solved</h3>
-                <p class="text-slate-600 text-sm">Step-by-step numerical solutions and marking scheme explanations for board exam past papers.</p>
+                <h3 class="font-bold text-lg text-slate-900">Physics Board Mock Paper 1 + Marking Scheme</h3>
+                <p class="text-slate-600 text-sm">Full-length trial exam paper formulated according to standard board weightages with step-by-step solutions.</p>
             </div>
             <div class="bg-slate-50 px-6 py-3 border-t border-slate-100 flex items-center justify-between">
                 <span class="text-xs text-slate-500"><i class="fa-solid fa-lock mr-1 text-amber-600"></i> MBoB Verified</span>
-                <button onclick="openMBoBModal('Class 12 Physics Past Paper 2024', '50')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm flex items-center gap-1.5">
+                <button onclick="openMBoBModal('Physics Board Mock Paper 1', '50')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-qrcode"></i> Buy via MBoB
+                </button>
+            </div>
+        </div>
+
+        <!-- PAID MOCK EXAM PAPER 2 -->
+        <div class="resource-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden ring-1 ring-amber-500/30" data-category="mock">
+            <div class="p-6 space-y-3">
+                <div class="flex justify-between items-start">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Paid Mock Paper</span>
+                    <span class="text-xs font-bold text-amber-600">Nu. 50</span>
+                </div>
+                <h3 class="font-bold text-lg text-slate-900">Physics Board Mock Paper 2 + Complete Solutions</h3>
+                <p class="text-slate-600 text-sm">Advanced practice test featuring tricky conceptual problems and numerical breakdowns for top-tier students.</p>
+            </div>
+            <div class="bg-slate-50 px-6 py-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs text-slate-500"><i class="fa-solid fa-lock mr-1 text-amber-600"></i> MBoB Verified</span>
+                <button onclick="openMBoBModal('Physics Board Mock Paper 2', '50')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm flex items-center gap-1.5">
                     <i class="fa-solid fa-qrcode"></i> Buy via MBoB
                 </button>
             </div>
@@ -128,6 +197,8 @@
             <p>Amount to Transfer: <b id="modalItemPrice" class="text-amber-600 font-bold"></b> Nu.</p>
             
             <div class="bg-slate-100 p-4 rounded-xl text-center space-y-2 border border-slate-200">
+                <!-- If you uploaded a QR image named mbob-qr.png, uncomment the line below -->
+                <!-- <img src="mbob-qr.png" alt="MBoB QR Code" class="w-32 h-32 mx-auto rounded-lg mb-2 object-contain"> -->
                 <div class="bg-indigo-900 text-white py-2 px-4 rounded-lg font-mono text-xs">
                     MBoB Account: <strong>20XXXXXX / Scan QR</strong>
                 </div>
@@ -135,7 +206,7 @@
             </div>
 
             <div class="space-y-1">
-                <label class="block font-medium text-slate-700 text-xs">Send payment screenshot & get password via WhatsApp/Telegram:</label>
+                <label class="block font-medium text-slate-700 text-xs">Send payment screenshot & get password via WhatsApp:</label>
                 <a href="https://wa.me/97517000000" target="_blank" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold py-2.5 rounded-xl transition shadow-sm text-sm">
                     <i class="fa-brands fa-whatsapp mr-1.5"></i> Send Screenshot on WhatsApp
                 </a>
@@ -148,7 +219,7 @@
 <div id="requestModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
     <div class="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl relative">
         <div class="flex justify-between items-center border-b pb-3">
-            <h3 class="font-bold text-lg text-slate-900">Request a Note or Solution</h3>
+            <h3 class="font-bold text-lg text-slate-900">Request a Note or Mock Paper</h3>
             <button onclick="closeRequestModal()" class="text-slate-400 hover:text-slate-600 text-lg">&times;</button>
         </div>
         <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-3 text-sm">
@@ -157,8 +228,8 @@
                 <input type="text" name="name" required placeholder="e.g. Sonam Dorji, Class 12 Science" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
             </div>
             <div>
-                <label class="block font-medium text-slate-700 mb-1">What chapter or past paper do you need?</label>
-                <textarea name="request" required rows="3" placeholder="Describe the topic or year..." class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+                <label class="block font-medium text-slate-700 mb-1">What specific topic or paper do you need?</label>
+                <textarea name="request" required rows="3" placeholder="Describe the unit or mock paper..." class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
             </div>
             <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-xl transition shadow-sm">
                 Submit Request
@@ -167,11 +238,10 @@
     </div>
 </div>
 
-<!-- JAVASCRIPT LOGIC -->
 <script>
     function switchTab(category) {
         const cards = document.querySelectorAll('.resource-card');
-        ['all', 'free', 'paid'].forEach(cat => {
+        ['all', 'units', 'questions', 'mock'].forEach(cat => {
             const btn = document.getElementById(`btn-${cat}`);
             if(cat === category) {
                 btn.className = "px-4 py-2 rounded-lg bg-white text-slate-900 shadow-sm transition";
