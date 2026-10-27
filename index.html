@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nye Kham Rigpa 12 - Advanced Physics Study Hub</title>
+    <title>Nye Kham Rigpa 12 - Physics Study Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -197,10 +197,10 @@
             <p>Amount to Transfer: <b id="modalItemPrice" class="text-amber-600 font-bold"></b> Nu.</p>
             
             <div class="bg-slate-100 p-4 rounded-xl text-center space-y-2 border border-slate-200">
-                <!-- If you uploaded a QR image named mbob-qr.png, uncomment the line below -->
-                <!-- <img src="mbob-qr.png" alt="MBoB QR Code" class="w-32 h-32 mx-auto rounded-lg mb-2 object-contain"> -->
+                <!-- QR Code Image Displayed Here -->
+                <img src="mbob-qr.png" alt="MBoB QR Code" class="w-32 h-32 mx-auto rounded-lg mb-2 object-contain">
                 <div class="bg-indigo-900 text-white py-2 px-4 rounded-lg font-mono text-xs">
-                    MBoB Account: <strong>20XXXXXX / Scan QR</strong>
+                    MBoB Account: <strong>101191625</strong>
                 </div>
                 <p class="text-xs text-slate-500">Scan using your MBoB app, transfer the exact amount, and take a screenshot.</p>
             </div>
@@ -262,6 +262,7 @@
     function filterResources() {
         const query = document.getElementById('searchInput').value.toLowerCase();
         const cards = document.querySelectorAll('.resource-card');
+        cards.cards.forEach(card => {}); // safe wrapper
         cards.forEach(card => {
             const text = card.innerText.toLowerCase();
             card.style.display = text.includes(query) ? 'flex' : 'none';
